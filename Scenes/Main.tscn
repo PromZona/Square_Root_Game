@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Scenes/Witch.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Charachter.gd" type="Script" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://Assets/Endings.png" type="Texture" id=26]
 [ext_resource path="res://Scripts/Final_Witch.gd" type="Script" id=27]
 [ext_resource path="res://Assets/Rootie.png" type="Texture" id=28]
+[ext_resource path="res://Assets/music/Song.wav" type="AudioStream" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.5, 25.5 )
@@ -280,7 +281,7 @@ script = ExtResource( 4 )
 
 [node name="Cone" type="CollisionPolygon2D" parent="Charachter/PushAbility"]
 position = Vector2( -12, -3 )
-polygon = PoolVector2Array( 102, -81, 152, -6, 104, 65, 65, 60, 14, 8, 49, -47 )
+polygon = PoolVector2Array( 139, -60, 183, -8, 151, 58, 77, 50, 14, 8, 64, -31 )
 
 [node name="Cooldown" type="Timer" parent="Charachter/PushAbility"]
 wait_time = 3.0
@@ -306,7 +307,7 @@ text = "50"
 [node name="Particles2D" type="Particles2D" parent="Charachter"]
 emitting = false
 amount = 50
-lifetime = 0.5
+lifetime = 0.45
 one_shot = true
 explosiveness = 0.75
 process_material = SubResource( 10 )
@@ -921,6 +922,11 @@ margin_bottom = -69.8
 rect_scale = Vector2( 0.5, 0.5 )
 text = "Witches invite you for tea in the forest. 
 It seems that Square root starts to remember his roots."
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+volume_db = -30.0
+autoplay = true
 
 [connection signal="open_door" from="Level1/Dummy_Witch" to="Level1/RightDoor" method="_on_Dummy_Witch_open_door"]
 [connection signal="open_door" from="Level2/Witch" to="Level2/RightDoor" method="_on_EasyWitch_open_door"]

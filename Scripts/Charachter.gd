@@ -87,6 +87,8 @@ func square():
 func die():
 	global_position = spawn_point.global_position
 	heal(MaxHealth - CurrentHealth)
+	if enemy == null:
+		return
 	enemy.global_position = enemy.SpawnPosition
 	enemy.heal(enemy.MaxHealth - enemy.CurrentHealth)
 
